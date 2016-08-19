@@ -6,6 +6,9 @@ const Router = Ember.Router.extend({
 });
 
 Router.map(function() {
+  this.route('navbar', function() {
+    this.route('trends', {path: '/trends/:townWoeId'});
+  });
 });
 
 export default Router;

@@ -1,0 +1,7 @@
+<button type="button" class="btn btn-primary btn-lg"{{action 'getTrends' model.townWoeId}}>Top Trends</button>
+{{#link-to 'navbar'}}<button type="button" class="btn btn-secondary btn-lg">Country List</button>{{/link-to}}
+{{#each trends as |trend|}}
+  <li class="list-group-item list-group-item-danger">
+    {{trend.name}} | {{trend.tweet_volume}}
+  </li>
+{{/each}}

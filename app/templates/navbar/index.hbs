@@ -1,0 +1,23 @@
+<button type="button" class="btn btn-secondary btn-lg"{{action 'getCountries'}}>Country List</button>
+<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+  {{#each-in allCountries as |countryName townsArray|}}
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id={{concat countryName 'heading'}}>
+      <h4 class="panel-title">
+        <a role="button" data-toggle="collapse" data-parent="#accordion" href={{concat '#' (changeFormat countryName)}} aria-expanded="false" aria-controls={{countryName}}>
+          {{countryName}}
+        </a>
+      </h4>
+    </div>
+    <div id={{changeFormat countryName}} class="panel-collapse collapse" role="tabpanel" aria-labelledby={{countryName}}>
+      <div class="panel-body">
+        {{#each townsArray as |town|}}
+        <li>
+          {{#link-to 'navbar.trends' town.woeid}}{{town.name}}{{/link-to}}
+        </li>
+        {{/each}}
+      </div>
+    </div>
+  </div>
+  {{/each-in}}
+</div>
